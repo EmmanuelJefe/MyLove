@@ -1,0 +1,115 @@
+body {
+    background-color: #000000; /* Color oscuro de fondo */
+}
+
+section, div, article {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+
+main {
+    position: relative;
+    height: 98vh;
+}
+
+section {
+    animation: loveSection 5s forwards alternate, heartBeat 1s 5s infinite;
+}
+
+article, div {
+    border-radius: 50%;
+    animation: heartBeat 1s 5s infinite; /* Aplicar heartBeat a div y article */
+}
+
+article {
+    animation: fromRight 5s forwards alternate;
+}
+
+div {
+    animation: fromLeft 5s forwards alternate;
+}
+
+@keyframes loveSection {
+    from { top: 0%; left: 0%; }
+    to {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+        box-shadow: 0 0 180px rgba(255, 0, 0, 0.7); /* Sombra de fondo al inicio - más grande */
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+        box-shadow: none; /* Sin sombra a la mitad de la animación */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+        box-shadow: 0 0 180px rgba(255, 0, 0, 0.7); /* Sin sombra al final de la animación */
+    }
+}
+
+nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-45deg) translate(-50%, -50%);
+    font-size: 5rem;
+    color: transparent;
+    /* Elimina o ajusta la animación según sea necesario */
+}
+
+.love-text {
+    padding-top: 25%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-family: "Varela Round", sans-serif;
+    opacity: 0; /* Inicia con opacidad 0 en lugar de color: transparent; */
+    animation: fadeIn 1s 5s forwards; /* Animación de fade in después de 5s */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        background: linear-gradient(to right, red, red , red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation-duration: 4s;
+    animation-name: animationgradienttitle;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    font-weight: bold;
+    }
+}
